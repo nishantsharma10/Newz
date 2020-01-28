@@ -93,13 +93,13 @@ The folders and files you see in this repositories, is how it is expected to be 
 
 #### To use this as a boilerplate for your new project, you can follow these steps
 
-1. Clone the base boilerplate in the folder **assignment-solution-step1** of your local machine
+1. Clone the base boilerplate in the folder **newz-step1-boilerplate** of your local machine
      
-    `git clone <BOILERPLATE-REPO>`
+    `git clone https://gitlab-ibm.stackroute.in/stack_java_newz/newz-step1-boilerplate.git`
 
-2. Navigate to assignment-solution-step1 folder
+2. Navigate to newz-step1-boilerplate folder
 
-    `cd assignment-solution-step1`
+    `cd newz-step1-boilerplate`
 
 3. Remove its remote or original reference
 
