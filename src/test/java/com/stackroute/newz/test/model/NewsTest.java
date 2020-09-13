@@ -20,7 +20,7 @@ class NewsTest {
     public static void setUp() throws  Exception {
         news = new News();
         news.setNewsId(1);
-        news.settitle("Cricket");
+        news.setTitle("Cricket");
         news.setAuthor("Sachin");
         news.setDescription("This is Cricket match between India vs Australia");
         news.setPublishedAt(LocalDateTime.now());
