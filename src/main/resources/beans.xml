@@ -5,7 +5,10 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- Add a bean element with ID as "news" for News model with scope prototype -->
+	<bean class="com.stackroute.newz.model.News" id="news" scope="prototype" />
+
 
 	<!-- Add a bean element with ID as "newsRepository" for NewsRepository model -->
+	<bean class="com.stackroute.newz.repository.NewsRepository" id="newsRepository" scope="prototype"/>
 
 </beans>
