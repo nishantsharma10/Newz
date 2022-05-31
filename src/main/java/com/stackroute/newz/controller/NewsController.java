@@ -67,7 +67,7 @@ public class NewsController {
 	 * news elements. Hence, reading news has to be done here again.
 	 * This handler method should map to the URL "/saveNews". 
 	*/
-	@GetMapping("/deleteNews{newsid}")
+	@GetMapping("/{newsId}")
 	public String deleteNews(@PathVariable("newsId") int id)
 	{	newsRepo.deleteNews(id);
 		

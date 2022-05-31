@@ -61,6 +61,7 @@
 		<Td>${news.title}</Td>
 		<Td>${news.author}</Td>
 		<Td>${news.description}</Td>
+		<Td>${news.publishedAt}</Td>
 		<Td>${news.content}</Td>
 		<Td><a href="${news.newsId}">Delete</a></Td>
 		</Tr>
