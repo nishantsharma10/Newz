@@ -54,7 +54,7 @@ public class NewsController {
 	 * of the NewsRepository class and add it to the ModelMap which is an implementation of Map 
 	 * for use when building model data for use with views. it should map to the default URL i.e. "/" */
 	@SuppressWarnings("finally")
-	@PostMapping("/saveNews")
+	@PostMapping("/saveData")
 	public String saveData(@ModelAttribute("news")News news, BindingResult bindingResult ){
 		
 			if((Objects.isNull(news.getAuthor()))||Objects.isNull(news.getContent())||Objects.isNull(news.getTitle()))
