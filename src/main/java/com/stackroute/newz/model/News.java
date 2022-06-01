@@ -68,7 +68,7 @@ public class News {
 	}
 	
 
-	@SuppressWarnings("finally")
+	//@SuppressWarnings("finally")
 	public String getAuthor() {
 		/*
 		 * try { title.equals(null); } catch(NullPointerException n) { return

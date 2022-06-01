@@ -1,10 +1,13 @@
 package com.stackroute.newz.controller;
 
+import java.util.Objects;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +24,7 @@ import com.stackroute.newz.repository.NewsRepositoryImpl;
 public class NewsController {
 	
 	private ApplicationContext appCtx=new ClassPathXmlApplicationContext("beans.xml");
-			News news=(News) appCtx.getBean("news");
+			News newz=(News) appCtx.getBean("news");
 			NewsRepositoryImpl newsRepo=(NewsRepositoryImpl) appCtx.getBean("newsRepository");
 			
 	/*		
@@ -52,26 +55,16 @@ public class NewsController {
 	 * for use when building model data for use with views. it should map to the default URL i.e. "/" */
 	@SuppressWarnings("finally")
 	@PostMapping("/saveNews")
-	public String saveNews(@ModelAttribute("news")News news, BindingResult bindingResult ){
-		try
-		{news.getAuthor().equals(null);
-				news.getContent().equals(null);
-				news.getDescription().equals(null);
-				news.getTitle().equals(null);
-				
-					
-				//return n.toString();
-			}
-			
-		catch(NullPointerException n)
+	public String saveData(@ModelAttribute("news")News news, BindingResult bindingResult ){
 		
+			if((Objects.isNull(news.getAuthor()))||Objects.isNull(news.getContent())||Objects.isNull(news.getTitle()))
 		{	return "redirect:/";
 			
 		}
-		finally {
+		 
 			newsRepo.addNews(news);
 			return "redirect:/";
-		}
+		
 	}
 	
 	
