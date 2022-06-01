@@ -47,6 +47,7 @@ public class News {
 
 
 	public int getNewsId() {
+		
 		return newsId;
 	}
 
@@ -55,22 +56,36 @@ public class News {
 	}
 
 	public String getTitle() {
+		/*
+		 * try { title.equals(null); } catch(NullPointerException n) {
+		 * System.out.println("null titile"); } return title;
+		 */
 		return title;
 	}
 
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 
+	@SuppressWarnings("finally")
 	public String getAuthor() {
-		return author;
+		/*
+		 * try { title.equals(null); } catch(NullPointerException n) { return
+		 * n.toString(); } finally { return author;
+		 */
+	return author;
 	}
-
 	public void setAuthor(String author) {
+		
 		this.author = author;
 	}
 
 	public String getDescription() {
+		/*
+		 * try { description.equals(null); } catch(NullPointerException n) { return
+		 * n.toString(); } finally { return description;}
+		 */
 		return description;
 	}
 
@@ -79,6 +94,10 @@ public class News {
 	}
 
 	public String getContent() {
+		/*
+		 * try { content.equals(null); } catch(NullPointerException n) { return
+		 * n.toString(); } finally { return content;}
+		 */
 		return content;
 	}
 

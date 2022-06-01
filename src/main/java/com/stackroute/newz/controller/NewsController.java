@@ -21,7 +21,7 @@ import com.stackroute.newz.repository.NewsRepositoryImpl;
 public class NewsController {
 	
 	private ApplicationContext appCtx=new ClassPathXmlApplicationContext("beans.xml");
-			//News news=(News) appCtx.getBean("news");
+			News news=(News) appCtx.getBean("news");
 			NewsRepositoryImpl newsRepo=(NewsRepositoryImpl) appCtx.getBean("newsRepository");
 			
 	/*		
@@ -33,6 +33,7 @@ public class NewsController {
 	 * 2. Add a new news which should contain the News Id, title, author, description, content.
 	 * 3. Delete an existing news.
 	 */
+	//@SuppressWarnings("finally")
 	/* 
 	 * Get the application context from resources/beans.xml file using ClassPathXmlApplicationContext() class.
 	 * Retrieve the News object from the context.
@@ -40,23 +41,37 @@ public class NewsController {
 
 	*/	
 
-
-	
-
-
 	@GetMapping("/")
 	 public String getNewsList(Model map) {
 		map.addAttribute("newz",newsRepo.getAllNews());
-		return "index";
-		 
-	 }
+			return "index";	
+		}
+	 
 	/*Define a handler method to read the existing news by calling the getNewsList() method 
 	 * of the NewsRepository class and add it to the ModelMap which is an implementation of Map 
 	 * for use when building model data for use with views. it should map to the default URL i.e. "/" */
+	@SuppressWarnings("finally")
 	@PostMapping("/saveNews")
-	public String saveNews(@ModelAttribute("news")News news,BindingResult bindingResult ){
-		newsRepo.addNews(news);
-		return "redirect:/";
+	public String saveNews(@ModelAttribute("news")News news, BindingResult bindingResult ){
+		try
+		{news.getAuthor().equals(null);
+				news.getContent().equals(null);
+				news.getDescription().equals(null);
+				news.getTitle().equals(null);
+				
+					
+				//return n.toString();
+			}
+			
+		catch(NullPointerException n)
+		
+		{	return "redirect:/";
+			
+		}
+		finally {
+			newsRepo.addNews(news);
+			return "redirect:/";
+		}
 	}
 	
 	
